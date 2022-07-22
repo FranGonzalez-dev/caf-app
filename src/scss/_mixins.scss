@@ -1,0 +1,39 @@
+@mixin reset-pm {
+    padding: 0;
+    margin: 0;
+}
+@mixin h-w($height: 100%, $width: 100%) {
+    height: $height;
+    width: $width;
+}
+
+@mixin flex($dir: column, $just: center, $align: center) {
+    display: flex;
+    flex-direction: $dir;
+    justify-content: $just;
+    align-items: $align;
+}
+
+@mixin container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+
+@mixin grid ($value, $fr : 1fr, $gap : 1rem) {
+    display: grid;
+    grid-template-columns: repeat($value, $fr);
+    gap: $gap;
+}
+
+
+
+@mixin transition ( $type : all ) {
+    transition: $type .3s ease-in-out;
+}
+
+@mixin responsive($size: 768px){
+    @media screen and (min-width: $size){
+        @content
+    }
+};
