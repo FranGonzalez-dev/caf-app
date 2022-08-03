@@ -20,6 +20,15 @@
 }
 
 
+
+
+@mixin truncate-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
 @mixin grid ($value, $fr : 1fr, $gap : 1rem) {
     display: grid;
     grid-template-columns: repeat($value, $fr);

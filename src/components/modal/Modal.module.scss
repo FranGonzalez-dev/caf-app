@@ -1,0 +1,37 @@
+@use '../../scss' as *;
+
+
+.modal {
+    background-color: var(--background);
+    border-radius: .5rem;
+    padding: 1rem;
+    position: relative;
+    z-index: 10;
+    // max-width: 900px;
+    // @include h-w( 60%, 90% );
+    //width: clamp(50%, 900px, 90%);
+    //height: min(60%, 300px);
+    @include h-w( min(60%, 300px), clamp(50%, 900px, 90%) );
+
+
+}
+
+.modalHeader {    
+    border-bottom: 2px solid var(--primary);
+    color: var(--text-color1);
+    font-size: 1.5rem;
+    padding-bottom: .5rem;
+    width: 100%;
+    @include flex( row, space-between, center );
+    i {
+        border-radius: 100%;
+        cursor: pointer;
+        @include h-w(2rem, 2rem);
+        @include flex;
+        &:hover {
+            background-color: var(--background-2);
+        }
+    }
+}
+
+    

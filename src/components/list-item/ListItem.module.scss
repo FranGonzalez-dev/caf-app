@@ -1,46 +1,45 @@
 @use '../../scss/' as *;
 
 .listItem {
-    background-color: var(--background-2);
-    border-radius: 1rem;
+    background-color: var( --black-2 );
+    border-radius: var( --border-radius );
     cursor: pointer;
-    gap: 1rem;
-    overflow: hidden;
-    padding: .5rem;
-    position: relative;
-    @include flex(row, start, center);
+    gap: .5rem;
+    padding: 0 .5rem;
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    align-items: center;
+    @include h-w( 4rem, 100% );
     @include transition;
     &:hover {
-        background-color: #333;
-        filter: brightness(110%);
+        background-color: var( --black-3 );
     }
-    .imageContainer {
-        background-color: white;
-        border-radius: 1rem;
+    .image {
+        background-color: var( --black-3 );
+        border-radius: var( --border-radius );
         overflow: hidden;
-        @include h-w(5rem, 5rem);
+        @include h-w(3rem, 3rem);
         img {
             object-fit: cover;
             @include h-w; // (100%, 100%)
         }
     }
-    .infoContainer {
-        gap: 1rem;
-        margin: 0;
-        @include flex(row, space-between, center);
-        .info {
-            color: var(--text-color1);
-            p { 
-                color: var(--text-color2); 
-                font-size: .9rem;
-            }
+    .info {
+        @include flex(column, center, flex-start);
+        h4 {
+            color: var( --text-color1 );
+            @include truncate-text;
         }
-        .tone {
-            position: absolute;
-            color: var(--primary);
-            font-weight: bold;
-            right: 0;
-            margin-right: 1rem;
+        p { 
+            color: var( --text-color2 ); 
+            font-size: 1rem;
+            @include truncate-text;
         }
+    }
+    .tone {        
+        font-size: .8rem;
+        color: var( --primary );
+        font-weight: bold;
+        @include truncate-text;
     }
 }

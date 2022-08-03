@@ -6,11 +6,20 @@
 :root {
     --primary: #39ffa0;
     --font-family: 'Inter', sans-serif;
+
     --text-color1: #fff;
     --text-color2: #555;
     --text-color3: #ccc;
+
+
+    --black-1: #111;
+    --black-2: #222;
+    --black-3: #333;
+
     --background: #111;
     --background-2: #222;
+
+    --border-radius: 1rem;
 }
 
 * {
@@ -22,7 +31,7 @@
 body {
     background-color: var(--background);
     font-family: var(--font-family);
-    a { text-decoration: none; }
+    a { text-decoration: none; color: inherit;}
 }
 
 /*

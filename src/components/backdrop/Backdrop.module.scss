@@ -1,0 +1,11 @@
+@use '../../scss' as *;
+
+.backdrop {
+    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, .5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    @include flex;
+    @include h-w;
+}

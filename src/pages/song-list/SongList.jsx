@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ListItem } from '../../components/list-item/ListItem';
+import { ListItem } from '../../components';
 import { api } from '../../helpers';
 import axios from 'axios';
 
@@ -16,6 +16,7 @@ export const SongList = () => {
     }, []);
     const { data } = songs;
 
+    
 return (
     <div className={styles.songsList}>
         <h1>Lista de canciones</h1>
@@ -30,6 +31,9 @@ return (
                         title={song.attributes.title}
                         author={song.attributes.author}
                         tone={song.attributes.tone.data.attributes.tone}
+                        tempo={song.attributes.tempo}
+                        lyric={song.attributes.lyric}
+                        url={song.attributes.url}
                     />
                 )) : <p>Cargando...</p>
             }
