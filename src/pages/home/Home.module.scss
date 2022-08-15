@@ -1,15 +1,12 @@
 @use '../../scss/' as *;
 
-.home {
-    padding: 1rem;
-    @include container;
-    @include flex(column, center,unset);
-    @include responsive {
-        padding: 0;
-    }
+.header {
+    margin-bottom: 1rem;
+    @include h-w(350px, 100%);
+    @include flex;
     h1 {
-        margin-top: 3rem;
         color: var( --text-color1 );
+        padding: 1rem;
         font-size: 2.5rem;
         text-align: center;
         @include responsive {
@@ -17,36 +14,148 @@
         }
     }
 }
-.grid {
-    margin: 3rem 0;
-    @include grid( 1 );
+
+
+
+
+
+
+.container {
+    background-color: inherit;
+    display: grid;    
+    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, auto);
+    grid-template-areas:
+        'item item' 
+        'card1 card1' 
+        'card2 card2'
+        'social social'
+    ;
+    padding: 1rem;
+    @include container;
     @include responsive {
-        grid-template-columns: repeat( 3, 1fr );
+        grid-template-areas: 
+            'item item' 
+            'card1 card2'
+            'social social'
+        ;
     }
-    .item {
-        
-        list-style-type: none;
-        background-color: var( --background-2 );
-        color: var( --text-color1 );
-        gap: 1rem;
-        border-radius: .5rem;
-        overflow: hidden;
-        
+}
+
+
+
+
+
+
+  
+  
+  
+  
+.item {
+    grid-area: item;
+    border-radius: var(--border-radius);
+    position: relative;
+    overflow: hidden;
+    background-color: var(--black-2);
+    @include h-w(180px, 100%);
+    @include flex;
+      h2 {
+        z-index: 1;
+        font-size: 1.5rem;
+        color: var(--text-color1);
+        @include transition;
+        @include responsive {
+            font-size: 2rem;
+        }
+      }
+      button {
+        position: absolute;
+        right: 14px;
+        bottom: 14px;
+        background-color: var(--primary);
+        border: none;
+        border-radius: 100%;
         cursor: pointer;
-        @include flex( row, start );
-        @include transition( background-color );
-        
-        &:hover {
-            background-color: #333;
-        }
+        outline:none;
+        color: var(--black-2);
+        @include h-w(30px, 30px);
+        @include transition;
         i {
-            background-color: var(--primary);
-            padding: 1rem;
-            color: var(--background-2);
+          font-size: 1rem;
         }
-        p {
-            padding: 1rem;
-            padding-left: 0;
+      }
+  
+      &:hover button {
+        transform: scale(100);        
+        color: var(--primary);
+      }
+      
+    &:hover h2 {
+        color: var(--black-2);
+    }
+      &:hover p {
+        color: #fff;
+      }
+    }    
+  
+
+
+.card {
+    grid-area: card1;
+    background-color: var( --black-2 );
+    border-radius: .5rem;
+    width: 100%;
+    min-height: 250px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    @include flex;
+    .cardBody {
+        h3 {
+            display: none;
+            color: var(--black-2);
+            z-index: 10;
+            @include transition;
         }
+        ul {
+            list-style-type: none;
+            li {
+                margin: .5rem 0;
+            }
+        }
+        span {
+            color: var(--primary);
+        }
+        padding: 1rem;
+        color: var( --text-color1 );
+    }
+    button {
+        position: absolute;
+        right: 14px;
+        bottom: 14px;
+        background-color: var(--primary);
+        border: none;
+        border-radius: 100%;
+        outline:none;
+        
+        @include h-w(30px, 30px);
+    }
+    &.card2 {
+        grid-area: card2;
+    }
+}
+
+.social {
+    grid-area: social;    
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: center;
+    margin-top: 2.5rem;
+    @include h-w(150px, 100%);
+    a {
+        color: var(--primary);
+        font-size: 2.2rem;
+        margin: 0 auto;
     }
 }

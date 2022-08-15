@@ -1,6 +1,7 @@
 @use '../../scss/' as *;
 
 .songsList {    
+    position: relative;
     padding: 1rem;
     @include container;
     @include responsive {

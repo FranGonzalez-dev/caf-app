@@ -5,13 +5,15 @@ import { Navbar } from './components';
 
 const CafApp = () => {
 return (
-
     <Router>
         <Navbar />
+        <div className="app">
         <Routes>
+                
             <Route path='/' element={ <Home/> }/>
             <Route exact path='/lista' element={ <SongList/> }/>
-            <Route exact path='/lista/:titulo' element={ <SongDetails/> }/>
+            <Route exact path='/lista/:id' element={ <SongDetails/> }/>
+
             <Route path='*'  element={ 
                 <main className='redirect-container'>
                     <div className='info'>
@@ -23,6 +25,7 @@ return (
                 </main>
 		    }/>
         </Routes>
+        </div>
     </Router>
 )}
 export default CafApp;

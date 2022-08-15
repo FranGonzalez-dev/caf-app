@@ -1,3 +1,5 @@
+
+
 @mixin reset-pm {
     padding: 0;
     margin: 0;
@@ -7,6 +9,29 @@
     width: $width;
 }
 
+
+@mixin zigzag-pattern ( $color: #fff ) {
+    background:
+        linear-gradient(135deg, $color 25%, transparent 25%) -50px 0,
+        linear-gradient(-135deg, $color 25%, transparent 25%) -50px 0,
+        linear-gradient(45deg, $color 25%, transparent 25%),
+        linear-gradient(-45deg, $color 25%, transparent 25%);
+    background-size: 100px 100px;
+}
+
+
+@mixin dots-pattern ($dots-color: var(--primary), $bg-color: var(--black-1), $dot-size: 2px, $dot-space: 60px){
+    background:
+    linear-gradient(90deg, $bg-color ($dot-space - $dot-size), transparent 1%) center,
+    linear-gradient($bg-color ($dot-space - $dot-size), transparent 1%) center,
+    $dots-color;
+background-size: $dot-space $dot-space;    
+}
+
+
+
+
+
 @mixin flex($dir: column, $just: center, $align: center) {
     display: flex;
     flex-direction: $dir;
@@ -15,7 +40,7 @@
 }
 
 @mixin container {
-    max-width: 1200px;
+    max-width: 1100px;
     margin: auto;
 }
 
